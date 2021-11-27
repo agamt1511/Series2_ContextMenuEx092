@@ -10,6 +10,13 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
+/**
+ * @author Agam Toledano
+ * @version 1.0
+ * @since 27/11/2021
+ * Short description - Practice (Context Menu) - Calculator for arithmetic series & engineering series.
+ */
+
 public class MainActivity extends AppCompatActivity {
     Switch sType;
     EditText organF, remMul;
@@ -32,18 +39,45 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * tryNum:
+     * Short description - Checks if the input is a number.
+     * @param textOF
+     * @param textRM
+     * @return false if try failed, else true
+     */
+    public static boolean tryNum(String textOF,String textRM){
+        int checkAns;
+        try {
+            double fOrgan = Double.valueOf(textOF);
+            double srm = Double.valueOf(textRM);
+            checkAns = 0;
+        }
+        catch (Exception e){
+            checkAns = 1;
+        }
+
+        if (checkAns==1){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    /**
+     * Button:
+     * Short description - Receives input and sends it to Activity_Results.
+     * <p>
+     *
+     * @param view
+     * @return none
+     */
     public void goResults(View view) {
         textOF = organF.getText().toString();
         textRM = remMul.getText().toString();
 
-        if((textOF.equals(""))||(textRM.equals("")) ||(textOF.equals("-"))||(textRM.equals("-"))
-                ||(textOF.equals("."))||(textRM.equals("."))||(textOF.indexOf(".")==0)||(textRM.indexOf(".")==0)
-                ||(textOF.indexOf(",")>0)||(textRM.indexOf(",")>0)
-                ||(textOF.indexOf("_")>0)||(textRM.indexOf("_")>0)
-                ||(textOF.indexOf(" ")>0)||(textRM.indexOf(" ")>0)
-                ||(textOF.indexOf(".")>1)||(textRM.indexOf(".")>1)
-                ||(textOF.indexOf("-")>1)||(textRM.indexOf("-")>1)
-                ||(textOF.indexOf("-")>0)||(textRM.indexOf("-")>1)){
+        if(tryNum(textOF,textRM)==false){
             Toast.makeText(this,"Error!Wrong input!",Toast.LENGTH_LONG).show();
         }
         else{
