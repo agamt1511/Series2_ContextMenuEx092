@@ -51,18 +51,11 @@ public class MainActivity extends AppCompatActivity {
         try {
             double fOrgan = Double.valueOf(textOF);
             double srm = Double.valueOf(textRM);
-            checkAns = 0;
         }
         catch (Exception e){
-            checkAns = 1;
-        }
-
-        if (checkAns==1){
             return false;
         }
-        else {
-            return true;
-        }
+        return true;
     }
 
     /**
