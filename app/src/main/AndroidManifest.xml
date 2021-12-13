@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Series2_ContextMenuEx092">
         <activity
+            android:name=".activity_credit"
+            android:exported="false" />
+        <activity
             android:name=".ResultsScreen"
             android:exported="false" />
         <activity

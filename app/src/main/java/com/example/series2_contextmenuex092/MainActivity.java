@@ -1,14 +1,16 @@
 package com.example.series2_contextmenuex092;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
+import android.view.Menu;
+import android.view.MenuItem;
 
 /**
  * @author Agam Toledano
@@ -20,7 +22,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     Switch sType;
     EditText organF, remMul;
-    Button result;
     Intent toResult;
     String textOF, textRM;
     double fOrgan, srm;
@@ -34,9 +35,32 @@ public class MainActivity extends AppCompatActivity {
         sType = (Switch) findViewById(R.id.sType);
         organF = (EditText) findViewById(R.id.organF);
         remMul = (EditText) findViewById(R.id.remMul);
-        result = (Button) findViewById(R.id.result);
         toResult = new Intent(this,ResultsScreen.class);
+    }
 
+    /**
+     * OptionMenu:
+     * Short description - Creation of OptionMenu.
+     * @param menu
+     * @return super.onCreateOptionsMenu(menu)
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    /**
+     * OptionMenu:
+     * Short description - Activating the OptionMenu.
+     * @param item
+     * @return super.onOptionsItemSelected(item)
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent si = new Intent(this,activity_credit.class);
+        startActivity(si);
+        return super.onOptionsItemSelected(item);
     }
 
     /**
